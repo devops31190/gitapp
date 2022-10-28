@@ -1,21 +1,22 @@
 ﻿name: PipelineWorkflow
 
-on: 
+# Run this workflow every time a commit gets pushed to main or a pull request gets opened against main
+on:
   push:
-   branches:
-    - main
+    branches:
+      - main
   pull_request:
-   branches:
-    - main
+    branches: 
+      - main
 
 jobs:
-  build:
-   name: Azure Pipeline
-   runs-on: ubuntu-latest
-   steps:
-   - name: Azure Pipeline Actions
-     uses: Azure/pipelines@v1
-     with:
-       azure-devops-project-url:https://dev.azure.com/rm417767/Agileproject/_build
-       azure-pipeline-name:'devops31190.gitapp'
-       azure-devops-token:${{secrets.AZURE_DEVOPS_TOKEN}}
+    build:
+        name: Azure Pipeline
+        runs-on: ubuntu-latest
+        steps:
+        - name: Azure Pipelines Action
+          uses: Azure/pipelines@v1
+          with:
+            azure-devops-project-url: https://dev.azure.com/rm417767/Agileproject
+            azure-pipeline-name: 'devops31190.gitapp'
+            azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
