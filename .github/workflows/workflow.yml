@@ -11,7 +11,7 @@ on:
 jobs:
   build:
    name: Azure Pipeline
-   runs-on: windows-latest
+   runs-on: ubuntu-latest
    steps:
    - name: Azure Pipeline Actions
      uses: Azure/pipelines@v1
